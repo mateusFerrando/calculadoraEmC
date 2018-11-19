@@ -1,0 +1,51 @@
+# depslib dependency file v1.0
+1526320501 source:/home/andreu/Dropbox/IFSC/Gaspar/Tecnólogo em ADS/Estruturas de Dados/exemplos/expressoes/arvore.c
+	"arvore.h"
+	<stdlib.h>
+	<stdio.h>
+
+1526320100 /home/andreu/Dropbox/IFSC/Gaspar/Tecnólogo em ADS/Estruturas de Dados/exemplos/expressoes/arvore.h
+
+1526320755 source:/home/andreu/Dropbox/IFSC/Gaspar/Tecnólogo em ADS/Estruturas de Dados/exemplos/expressoes/parser.c
+	<stdio.h>
+	<ctype.h>
+	<string.h>
+	<stdlib.h>
+	<stdarg.h>
+	"parser.h"
+
+1526320100 /home/andreu/Dropbox/IFSC/Gaspar/Tecnólogo em ADS/Estruturas de Dados/exemplos/expressoes/parser.h
+	"arvore.h"
+
+1526321140 source:/home/andreu/Dropbox/IFSC/Gaspar/Tecnólogo em ADS/Estruturas de Dados/exemplos/expressoes/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"arvore.h"
+	"parser.h"
+
+1542662972 source:c:\users\aluno\desktop\expressoes\arvore.c
+	"arvore.h"
+	<stdlib.h>
+	<stdio.h>
+
+1542661524 c:\users\aluno\desktop\expressoes\arvore.h
+
+1542662976 source:c:\users\aluno\desktop\expressoes\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"arvore.h"
+	"parser.h"
+
+1542662070 c:\users\aluno\desktop\expressoes\parser.h
+	"arvore.h"
+
+1542662083 source:c:\users\aluno\desktop\expressoes\parser.c
+	<stdio.h>
+	<ctype.h>
+	<string.h>
+	<stdlib.h>
+	<stdarg.h>
+	"parser.h"
+
