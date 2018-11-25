@@ -1,6 +1,7 @@
 #include "arvore.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include "parser.h"
 
 
 No* criar_arvore(char* chave){
@@ -31,31 +32,39 @@ No* inserir(No* arvore, No* esquerdo, No* direito){
 }
 
 void imprimir_preordem(No* no){
+
     printf("%s",no->token);
-    if(no->esquerda!=NULL){
-        imprimir_preordem(no->esquerda);
-    }
+
+    if(no->esquerda!=NULL)imprimir_preordem(no->esquerda);
 
     if(no->direita) imprimir_preordem(no->direita);
 }
 
 void imprimir_simetrica(No* no){
 
-    if(no->esquerda!=NULL){
+    if(no->esquerda!=NULL)
         imprimir_simetrica(no->esquerda);
-    }
+
     printf("%s",no->token);
-    if(no->direita!=NULL){
+
+    if(no->direita!=NULL)
         imprimir_simetrica(no->direita);
-    }
+
+}
+
+void imprimir_passo_a_passo(No* no){
+    if(no->esquerda==NULL)imprimir_simetrica(no->esquerda);
+
+    passo_a_passo(no);
+
+    if(no->direita==NULL)imprimir_simetrica(no->direita);
+
 }
 
 void imprimir_posordem(No* no){
-    if(no->esquerda!=NULL){
-        imprimir_posordem(no->esquerda);
-    }
-    if(no->direita!=NULL){
-        imprimir_posordem(no->direita);
-    }
+    if(no->esquerda!=NULL)imprimir_posordem(no->esquerda);
+
+    if(no->direita!=NULL)imprimir_posordem(no->direita);
+
     printf("%s",no->token);
 }

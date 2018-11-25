@@ -49,24 +49,25 @@
 	<stdarg.h>
 	"parser.h"
 
-1543154345 source:c:\users\user\documents\github\calculadoraemc\arvore.c
+1543161678 source:c:\users\user\documents\github\calculadoraemc\arvore.c
 	"arvore.h"
 	<stdlib.h>
 	<stdio.h>
+	"parser.h"
 
-1543149189 c:\users\user\documents\github\calculadoraemc\arvore.h
+1543160618 c:\users\user\documents\github\calculadoraemc\arvore.h
 
-1543153225 source:c:\users\user\documents\github\calculadoraemc\main.c
+1543164383 source:c:\users\user\documents\github\calculadoraemc\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"arvore.h"
 	"parser.h"
 
-1543153206 c:\users\user\documents\github\calculadoraemc\parser.h
+1543164320 c:\users\user\documents\github\calculadoraemc\parser.h
 	"arvore.h"
 
-1543153193 source:c:\users\user\documents\github\calculadoraemc\parser.c
+1543164711 source:c:\users\user\documents\github\calculadoraemc\parser.c
 	<stdio.h>
 	<ctype.h>
 	<string.h>

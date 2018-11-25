@@ -15,6 +15,7 @@ void destruir_arvore(No* no);
 void imprimir_preordem(No* no);
 void imprimir_simetrica(No* no);
 void imprimir_posordem(No* no);
+void imprimir_passo_a_passo(No* no);
 
 
 #endif // ARVORE_H_INCLUDED

@@ -181,3 +181,152 @@ void parentizada(No* no){
     printf(")");
 }
 
+double passo_a_passo(No* no){
+    double operando1,operando2;
+
+    if( strcmp(no->token,"/") == 0 ){
+        if( 0 == passo_a_passo(no->direita) ){
+           return 0;
+        }else{
+            operando1 = passo_a_passo(no->esquerda);
+            operando2 = passo_a_passo(no->direita);
+            printf("%.2f / %.2f = %.2f\n",operando1,operando2,operando1/operando2);
+            return operando1/operando2;
+        }
+    }
+
+    if( strcmp(no->token,"*") == 0 ){
+        operando1 = passo_a_passo(no->esquerda);
+        operando2 = passo_a_passo(no->direita);
+        printf("%.2f * %.2f = %.2f\n",operando1,operando2,operando1*operando2);
+        return operando1*operando2;
+    }
+
+    if( strcmp(no->token,"-") == 0 ){
+        operando1 = passo_a_passo(no->esquerda);
+        operando2 = passo_a_passo(no->direita);
+        printf("%.2f - %.2f = %.2f\n",operando1,operando2,operando1-operando2);
+        return operando1-operando2;
+    }
+
+    if( strcmp(no->token,"+") == 0 ){
+        operando1 = passo_a_passo(no->esquerda);
+        operando2 = passo_a_passo(no->direita);
+        printf("%.2f + %.2f = %.2f\n",operando1,operando2,operando1+operando2);
+        return operando1+operando2;
+    }
+
+    return atof(no->token);
+}
+
+double resultado(No* no){
+    double operando1,operando2;
+
+    if( strcmp(no->token,"/") == 0 ){
+        if( 0 == resultado(no->direita) ){
+           return 0;
+        }else{
+            operando1 = resultado(no->esquerda);
+            operando2 = resultado(no->direita);
+            return operando1/operando2;
+        }
+    }
+
+    if( strcmp(no->token,"*") == 0 ){
+        operando1 = resultado(no->esquerda);
+        operando2 = resultado(no->direita);
+        return operando1*operando2;
+    }
+
+    if( strcmp(no->token,"-") == 0 ){
+        operando1 = resultado(no->esquerda);
+        operando2 = resultado(no->direita);
+        return operando1-operando2;
+    }
+
+    if( strcmp(no->token,"+") == 0 ){
+        operando1 = resultado(no->esquerda);
+        operando2 = resultado(no->direita);
+        return operando1+operando2;
+    }
+
+    return atof(no->token);
+}
+
+void resultado_final(No* no){
+    printf(" = %.2f",resultado(no));
+}
+
+void divisao_por_zero(No* no){
+    if( resultado(no) == 0 ){
+        printf("esta operacao consta uma divisao por zero");
+    }else{
+        printf("esta operacao nao consta uma divisao por zero");
+    }
+}
+
+void menu(No* no){
+    int op;
+
+    printf("\nSelecione uma opcao para a expressao lida:\n");
+    printf("\n0 - Sair");
+    printf("\n1 - Calcular expressao");
+    printf("\n2 - Calcular expressao passo a passo");
+    printf("\n3 - Mostrar equivalente em notacao polonesa");
+    printf("\n4 - Mostrar expressao parentizada");
+    printf("\n5 - Verificar se existe divisao por ");
+    printf("\n6 - Ler outra expressao do teclado\n");
+    scanf("%d",&op);
+
+    switch(op){
+    case 1 :
+        system("cls");
+        printf("Calcular expressao\n");
+        imprimir_simetrica(no);
+        resultado_final(no);
+        menu(no);
+        break;
+    case 2 :
+        system("cls");
+        printf("Calcular expressao passo a passo\n");
+        imprimir_passo_a_passo(no);
+        menu(no);
+        break;
+    case 3 :
+        system("cls");
+        printf("Mostrar equivalente em notacao polonesa\n");
+        imprimir_preordem(no);
+        menu(no);
+        break;
+    case 4 :
+        system("cls");
+        printf("Mostrar expressao parentizada\n");
+        parentizada(no);
+        menu(no);
+        break;
+    case 5 :
+        system("cls");
+        printf("Verificar se existe divisao por\n");
+        divisao_por_zero(no);
+        menu(no);
+        break;
+    case 6 :
+        system("cls");
+        destruir_arvore(no);
+        pedirOperacao();
+        break;
+    case 0 :
+        menu(no);
+        break;
+    }
+}
+
+No* pedirOperacao(){
+    printf("-Processador de expressoes aritmeticas-\n");
+    memset(buffer, 0, MAX_BUFFER);
+    printf("= ");
+    fgets(buffer, sizeof(buffer), stdin);
+    No* no = gerar_arvore(buffer);
+    if(no != NULL)
+    menu(no);
+}
