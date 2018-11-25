@@ -15,5 +15,6 @@ void organizar_precedencias(No* no);
 void colocar_espacos(char* buffer);
 void habilitar_log();
 void inline __copiar(char *dest, char *src, size_t n);
+void parentizada(No* no);
 
 #endif // CALCULADORA_H_INCLUDED

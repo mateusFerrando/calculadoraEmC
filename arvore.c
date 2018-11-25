@@ -47,9 +47,9 @@ void imprimir_simetrica(No* no){
     printf("%s",no->token);
     if(no->direita!=NULL){
         imprimir_simetrica(no->direita);
-
     }
 }
+
 void imprimir_posordem(No* no){
     if(no->esquerda!=NULL){
         imprimir_posordem(no->esquerda);
@@ -57,6 +57,5 @@ void imprimir_posordem(No* no){
     if(no->direita!=NULL){
         imprimir_posordem(no->direita);
     }
-
-    printf("%c",no->token);
+    printf("%s",no->token);
 }

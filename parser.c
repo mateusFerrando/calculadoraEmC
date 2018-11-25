@@ -166,3 +166,18 @@ void colocar_espacos(char* buffer){
     }
     buffer[i] = '\0';
 }
+
+void parentizada(No* no){
+    if(no->esquerda!=NULL){
+        printf("(");
+        imprimir_simetrica(no->esquerda);
+    }
+    printf(" %s ",no->token);
+    if(no->direita!=NULL){
+        printf("(");
+        imprimir_simetrica(no->direita);
+        printf(")");
+    }
+    printf(")");
+}
+
