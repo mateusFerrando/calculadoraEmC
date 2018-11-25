@@ -259,13 +259,13 @@ void resultado_final(No* no){
 
 void divisao_por_zero(No* no){
     if( resultado(no) == 0 ){
-        printf("esta operacao consta uma divisao por zero");
+        printf("esta operacao e uma divisao por zero");
     }else{
-        printf("esta operacao nao consta uma divisao por zero");
+        printf("esta operacao nao e uma divisao por zero");
     }
 }
 
-void menu(No* no){
+int menu(No* no){
     int op;
 
     printf("\nSelecione uma opcao para a expressao lida:\n");
@@ -281,52 +281,43 @@ void menu(No* no){
     switch(op){
     case 1 :
         system("cls");
-        printf("Calcular expressao\n");
+        printf("-Calcular expressao-\n");
         imprimir_simetrica(no);
         resultado_final(no);
         menu(no);
         break;
     case 2 :
         system("cls");
-        printf("Calcular expressao passo a passo\n");
+        printf("-Calcular expressao passo a passo-\n");
         imprimir_passo_a_passo(no);
         menu(no);
         break;
     case 3 :
         system("cls");
-        printf("Mostrar equivalente em notacao polonesa\n");
+        printf("-Mostrar equivalente em notacao polonesa-\n");
         imprimir_preordem(no);
         menu(no);
         break;
     case 4 :
         system("cls");
-        printf("Mostrar expressao parentizada\n");
+        printf("-Mostrar expressao parentizada-\n");
         parentizada(no);
         menu(no);
         break;
     case 5 :
         system("cls");
-        printf("Verificar se existe divisao por\n");
+        printf("-Verificar se existe divisao por-\n");
         divisao_por_zero(no);
         menu(no);
         break;
     case 6 :
         system("cls");
-        destruir_arvore(no);
-        pedirOperacao();
+        printf("-Processador de expressoes aritmeticas-\n");
         break;
     case 0 :
-        menu(no);
-        break;
+        system("cls");
+        printf("-Ate a proxima-\n");
+        return 0;
     }
 }
 
-No* pedirOperacao(){
-    printf("-Processador de expressoes aritmeticas-\n");
-    memset(buffer, 0, MAX_BUFFER);
-    printf("= ");
-    fgets(buffer, sizeof(buffer), stdin);
-    No* no = gerar_arvore(buffer);
-    if(no != NULL)
-    menu(no);
-}

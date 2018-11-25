@@ -20,7 +20,6 @@ double passo_a_passo(No* no);
 void resultado_final(No* no);
 double resultado(No* no);
 void divisao_por_zero(No* no);
-void menu(No* no);
-No* pedirOperacao();
+int menu(No* no);
 
 #endif // CALCULADORA_H_INCLUDED
